@@ -4,6 +4,9 @@ namespace App\Providers;
 
 use App\Repository\Organizations\OrganizationRepository;
 use App\Repository\Organizations\OrganizationRepositoryInterface;
+use App\Repository\Team\TeamRepository;
+use App\Repository\Team\TeamRepositoryInterface;
+
 use App\Repository\Security\SecurityRepository;
 use App\Repository\Security\SecurityRepositoryInterface;
 use App\Repository\Users\UserRepositoryInterface;
@@ -22,19 +25,25 @@ class AppServiceProvider extends ServiceProvider
     {
         //Bind the Organziation interface
         $this->app->bind(
-            OrganizationRepositoryInterface::class, 
-            OrganizationRepository::class
+            OrganizationRepositoryInterface::class,
+            OrganizationRepository::class,
+        );
+
+        // Bind Team interface
+        $this->app->bind(
+            TeamRepositoryInterface::class,
+            TeamRepository::class
         );
 
         //Bind the user interface
         $this->app->bind(
-            UserRepositoryInterface::class, 
+            UserRepositoryInterface::class,
             UserRepository::class
         );
 
         //Bind the user interface
         $this->app->bind(
-            SecurityRepositoryInterface::class, 
+            SecurityRepositoryInterface::class,
             SecurityRepository::class
         );
 

@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/users', 'UserController@store');
 Route::put('/users/verify', 'UserController@verify');
 Route::post('/organizations', 'OrganizationController@store');
+
+Route::resource('/team','TeamsController');
